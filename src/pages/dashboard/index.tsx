@@ -1,7 +1,13 @@
-import React from 'react'
+import Navbar from "@/components/navbar";
+import PostForm from './PostForm'
 
 export default function index() {
   return (
-    <div>Dashboard</div>
-  )
+    <>
+      <Navbar />
+      <div className="mt-20 mx-auto max-w-lg">
+        <PostForm />        
+      </div>
+    </>
+  );
 }
