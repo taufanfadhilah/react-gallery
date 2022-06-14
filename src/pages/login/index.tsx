@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "@/components/button";
 import Link from "@/components/link";
 import Input from "@/components/input";
@@ -6,7 +7,8 @@ import LockIcon from "@/assets/icons/lock";
 import SignIcon from "@/assets/icons/sign";
 import "./index.css";
 
-export default function index() {
+export default function Login() {
+  const navigate = useNavigate();
   const onSubmit = (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
     const email: string = e.target.email.value;
@@ -14,6 +16,7 @@ export default function index() {
 
     if (email === "user@react.test" && password === "password") {
       alert("welcome");
+      navigate("dashboard");
     } else {
       alert("login failed");
       e.target.reset();
