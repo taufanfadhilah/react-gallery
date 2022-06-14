@@ -3,7 +3,6 @@
   "name": "react-gallery",
   "version": "0.1.0",
   "private": false,
-  "homepage": "http://taufanfadhilah.github.io/react-gallery",
   "dependencies": {
     "@craco/craco": "^6.4.3",
     "@headlessui/react": "^1.6.4",
