@@ -6,7 +6,7 @@ export default function index() {
   return (
     <>
       <Navbar />
-      <div className="mt-8 mx-auto max-w-lg">
+      <div className="mt-8 mx-auto max-w-lg mb-24">
         <PostForm />
         <PostTimeline />
       </div>

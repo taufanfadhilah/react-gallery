@@ -1,20 +1,21 @@
+import { useSelector } from "react-redux";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { getPosts } from "@/store/postSlices";
+import { Post } from "@/types/post";
 
 export default function PostTimeline() {
-  const card = () => {
+  const posts = useSelector(getPosts);
+
+  const card = (post: Post) => {
     return (
-      <div className="rounded overflow-hidden border w-full bg-white my-4 shadow-md">
-        <img
-          className="w-full bg-cover"
-          src="https://3.bp.blogspot.com/-Chu20FDi9Ek/WoOD-ehQ29I/AAAAAAAAK7U/mc4CAiTYOY8VzOFzBKdR52aLRiyjqu0MwCLcBGAs/s1600/DSC04596%2B%25282%2529.JPG"
-          alt="photos"
-        />
+      <div
+        className="rounded overflow-hidden border w-full bg-white my-4 shadow-md"
+        key={post.id}
+      >
+        <img className="w-full bg-cover" src={post.image} alt="photos" />
         <div className="px-3 pb-2">
           <div className="pt-1">
-            <div className="mb-2 text-sm">
-              Lord of the Rings is my favorite film-series. One day I'll make my
-              way to New Zealand to visit the Hobbiton set!
-            </div>
+            <div className="mb-2 text-sm">{post.desc}</div>
           </div>
         </div>
       </div>
@@ -42,8 +43,8 @@ export default function PostTimeline() {
 
   return (
     <>
-      {true ? [1, 2, 3].map(() => card()) : emptyState()}
-      <p>Found 0 photos</p>
+      {posts ? posts.map((post: Post) => card(post)) : emptyState()}
+      <p>Found {posts.length} photos</p>
     </>
   );
 }

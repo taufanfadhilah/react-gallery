@@ -6,6 +6,7 @@ type Props = {
   placeholder: string;
   type: "email" | "password" | "text" | "url";
   iconLeft?: React.ReactNode;
+  required?: boolean;
 };
 
 export default function index({
@@ -14,6 +15,7 @@ export default function index({
   placeholder,
   type,
   iconLeft,
+  required = false,
 }: Props) {
   return (
     <div className="flex items-center border-2 mb-8 py-2 px-3 rounded-2xl">
@@ -24,6 +26,7 @@ export default function index({
         type={type}
         name={name}
         placeholder={placeholder}
+        required={required}
       />
     </div>
   );
